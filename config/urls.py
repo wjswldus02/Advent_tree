@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from cards import views
 
 urlpatterns = [
-    path('cards/', include("cards.urls", namespace="cards")),
     path('admin/', admin.site.urls),
+    path('cards/', include("cards.urls",namespace="cards")),
 ]
