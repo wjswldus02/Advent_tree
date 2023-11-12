@@ -5,5 +5,6 @@ from . import views
 app_name = "cards"
 
 urlpatterns = [
-    path("", views.CardView.as_view(), name="all_review")
+    path("", views.all_card, name="all_card"),
+    # path("create/", views.create_card, name="create_card"),
 ]
