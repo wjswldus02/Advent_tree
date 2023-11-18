@@ -1,5 +1,6 @@
 from django.core.serializers import serialize
 from django.http import HttpResponse
+
 # from django.shortcuts import render, redirect, reverse
 from django.views.generic import FormView
 from rest_framework import viewsets
@@ -30,5 +31,5 @@ class CardViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.CardSerializer
     permission_classes = [AllowAny]
     filter_backends = [SearchFilter]
-    search_fields = ["week"]
+    search_fields = ["content"]
     ...
