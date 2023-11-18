@@ -28,8 +28,8 @@ router.register(r"groups", views.GroupViewSet)
 router.register(r"cards", card_views.CardViewSet)
 
 urlpatterns = [
-    path("", include(router.urls)),
+    path("api/", include(router.urls)),
     # path('cards_app/', include("cards.urls", namespace="cards")),
-    path("card-manager/", admin.site.urls),
+    path("api/card-manager/", admin.site.urls),
     path("api-auth/", include("rest_framework.urls", namespace="rest_framework")),
 ]
