@@ -10,6 +10,7 @@ class CardSerializer(serializers.ModelSerializer):
             "id",
             "writer",
             "content",
+            "img_path",
             "week",
             "ornament_x",
             "ornament_y",
