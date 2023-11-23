@@ -19,6 +19,7 @@ from django.urls import path, include
 from rest_framework import routers
 
 from cards import views as card_views
+from notices import views as notice_views
 from quickstart import views
 
 
@@ -26,6 +27,7 @@ router = routers.DefaultRouter()
 router.register(r"users", views.UserViewSet)
 router.register(r"groups", views.GroupViewSet)
 router.register(r"cards", card_views.CardViewSet)
+router.register(r"notices", notice_views.NoticeViewSet)
 
 urlpatterns = [
     path("api/", include(router.urls)),

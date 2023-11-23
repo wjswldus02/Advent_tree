@@ -40,6 +40,7 @@ ALLOWED_HOSTS = ["*"]
 
 INSTALLED_APPS = [
     "cards.apps.CardsConfig",
+    "notices.apps.NoticesConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -168,7 +169,7 @@ LOGGING = {
     },
     "loggers": {
         "advent-tree-log": {
-            "handlers": ["file"],
+            "handlers": ["console", "file"],
             "level": "DEBUG",
             "propagate": True,
         },
