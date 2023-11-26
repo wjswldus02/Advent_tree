@@ -21,13 +21,13 @@ class Card(models.Model):
 @receiver(pre_save, sender=Card)
 def data_process(sender, instance, **kwargs):
     current_date = datetime.now()
-    if datetime(2023, 11, 26) <= current_date <= datetime(2023, 12, 2):
+    if datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9):
         instance.week = 1
-    elif datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9):
-        instance.week = 2
     elif datetime(2023, 12, 10) <= current_date <= datetime(2023, 12, 16):
-        instance.week = 3
+        instance.week = 2
     elif datetime(2023, 12, 17) <= current_date <= datetime(2023, 12, 23):
+        instance.week = 3
+    elif datetime(2023, 12, 24) <= current_date <= datetime(2023, 12, 30):
         instance.week = 4
     else:
         instance.week = 0

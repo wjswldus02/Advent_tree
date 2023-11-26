@@ -56,8 +56,12 @@ def generate_point_inside_triangle_with_distance(count, d, existing_points):
     print(cnt, i, "here!")
 
     if count % 2 == 0:
+        if datetime(2023, 12, 24) <= datetime.now() <= datetime(2023, 12, 30):
+            return (str(p) for p in (random.randint(2500, 2900), random.randint(1700, 2100)))
         return (str(p) for p in (random.randint(2600, 2900), random.randint(2600, 2900)))
     else:
+        if datetime(2023, 12, 24) <= datetime.now() <= datetime(2023, 12, 30):
+            return (str(p) for p in (random.randint(200, 600), random.randint(1700, 2100)))
         return (str(p) for p in (random.randint(100, 400), random.randint(2600, 2900)))
     # return (0.9, 0.9)
 
@@ -83,50 +87,53 @@ def generate_point_inside_triangle_with_distance(count, d, existing_points):
 #     [(2500, 4120), (4610, 3500), (3660, 2260)],
 # ]
 tree_1 = [
+    [(1435, 530), (600, 2545), (2585, 2545)],
+]
+
+tree_2 = [
+    [(1500, 245), (800, 1900), (2240, 1900)],  # 3개
+    [(1050, 1005), (1500, 2465), (2240, 1900)],  # 2개
+    [(1500, 245), (800, 1900), (2240, 1900)],  # 3개
+    [(1180, 2540), (800, 1900), (2240, 1900)],  # 1개
+    [(1500, 245), (800, 1900), (2240, 1900)],  # 3개
+    [(1050, 1005), (1500, 2465), (2240, 1900)],  # 2개
+]
+
+tree_3 = [
+    [(1500, 440), (900, 1500), (2020, 1500)],
+    [(1500, 2500), (900, 1500), (2020, 1500)],
+    [(1500, 2500), (900, 1500), (520, 2500)],
+    [(1500, 2500), (2475, 2500), (2020, 1500)],
+]
+
+tree_4 = [
+    [(1500, 225), (440, 2800), (2475, 2800)],
+]
+
+tree_5 = [
     [(1500, 145), (823, 1500), (2190, 1500)],
     [(823, 1500), (1404, 2638), (2190, 1500)],
     [(823, 1500), (1404, 2638), (473, 2290)],
     [(1404, 2638), (2575, 2338), (2190, 1500)],
 ]
 
-tree_2 = [
-    [(1528, 172), (1068, 1392), (1995, 1392)],
-    [(1543, 2474), (1068, 1392), (1995, 1392)],
-    [(1543, 2474), (2256, 2400), (1995, 1392)],
-    [(1543, 2474), (816, 2427), (1068, 1392)],
-]
-
-tree_3 = [
-    [(1467, 145), (750, 1356), (2196, 1356)],
-    [(1500, 2472), (750, 1356), (2196, 1356)],
-    [(1500, 2472), (270, 2100), (750, 1356)],
-    [(1500, 2472), (2766, 2100), (2196, 1356)],
-]
-
-tree_4 = [
-    [(1500, 225), (1050, 1500), (2020, 1500)],
-    [(1500, 2800), (1050, 1500), (2020, 1500)],
-    [(1500, 2800), (1050, 1500), (440, 2800)],
-    [(1500, 2800), (2475, 2800), (2020, 1500)],
-]
-
 
 def select_next_item(count):
     # 현재 날짜 구하기
     current_date = datetime.now()
-    trees = [tree_1, tree_2, tree_3, tree_4]
+    trees = [tree_1, tree_2, tree_3, tree_4, tree_5]
 
     # 주차 계산
-    if datetime(2023, 11, 26) <= current_date <= datetime(2023, 12, 2):
-        return trees[0][(count - 1) % 4]
-    elif datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9):
-        return trees[1][(count - 1) % 4]
+    if datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9):
+        return trees[0][(count - 1) % len(trees[0])]
     elif datetime(2023, 12, 10) <= current_date <= datetime(2023, 12, 16):
-        return trees[2][(count - 1) % 4]
+        return trees[1][(count - 1) % len(trees[1])]
     elif datetime(2023, 12, 17) <= current_date <= datetime(2023, 12, 23):
-        return trees[-1][(count - 1) % 4]
+        return trees[2][(count - 1) % len(trees[2])]
+    elif datetime(2023, 12, 24) <= current_date <= datetime(2023, 12, 30):
+        return trees[3][(count - 1) % len(trees[3])]
     else:
-        return trees[0][(count - 1) % 4]
+        return trees[4][(count - 1) % len(trees[4])]
 
 
 # tree_1 = [

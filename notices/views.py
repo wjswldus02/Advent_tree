@@ -15,13 +15,13 @@ class NoticeViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         current_date = datetime.now()
-        if datetime(2023, 11, 26) <= current_date <= datetime(2023, 12, 2):
+        if datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9):
             current_week = 1
-        elif datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9):
-            current_week = 2
         elif datetime(2023, 12, 10) <= current_date <= datetime(2023, 12, 16):
-            current_week = 3
+            current_week = 2
         elif datetime(2023, 12, 17) <= current_date <= datetime(2023, 12, 23):
+            current_week = 3
+        elif datetime(2023, 12, 24) <= current_date <= datetime(2023, 12, 30):
             current_week = 4
         else:
             current_week = 0
