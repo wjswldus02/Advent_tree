@@ -55,14 +55,25 @@ def generate_point_inside_triangle_with_distance(count, d, existing_points):
         d /= i
     print(cnt, i, "here!")
 
+    current_date = datetime.now()
     if count % 2 == 0:
-        if datetime(2023, 12, 24) <= datetime.now() <= datetime(2023, 12, 30):
+        if (datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9)) or (
+            datetime(2023, 12, 17) <= current_date <= datetime(2023, 12, 23)
+        ):
+            return (str(p) for p in (random.randint(130, 725), random.randint(465, 950)))
+        elif datetime(2023, 12, 24) <= current_date <= datetime(2023, 12, 30):
             return (str(p) for p in (random.randint(2500, 2900), random.randint(1700, 2100)))
-        return (str(p) for p in (random.randint(2600, 2900), random.randint(2600, 2900)))
+        else:
+            return (str(p) for p in (random.randint(220, 740), random.randint(370, 1375)))
     else:
-        if datetime(2023, 12, 24) <= datetime.now() <= datetime(2023, 12, 30):
+        if (datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9)) or (
+            datetime(2023, 12, 17) <= current_date <= datetime(2023, 12, 23)
+        ):
+            return (str(p) for p in (random.randint(2280, 2850), random.randint(465, 950)))
+        elif datetime(2023, 12, 24) <= current_date <= datetime(2023, 12, 30):
             return (str(p) for p in (random.randint(200, 600), random.randint(1700, 2100)))
-        return (str(p) for p in (random.randint(100, 400), random.randint(2600, 2900)))
+        else:
+            return (str(p) for p in (random.randint(2290, 2800), random.randint(370, 1375)))
     # return (0.9, 0.9)
 
 
