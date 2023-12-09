@@ -1,4 +1,5 @@
 from datetime import datetime
+from zoneinfo import ZoneInfo
 
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
@@ -17,14 +18,14 @@ class CardViewSet(viewsets.ModelViewSet):
     search_fields = ["content"]
 
     def list(self, request, *args, **kwargs):
-        current_date = datetime.now()
-        if datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9):
+        current_date = datetime.now(tz=ZoneInfo("Asia/Seoul"))
+        if datetime(2023, 12, 3) <= current_date < datetime(2023, 12, 10):
             current_week = 1
-        elif datetime(2023, 12, 10) <= current_date <= datetime(2023, 12, 16):
+        elif datetime(2023, 12, 10) <= current_date < datetime(2023, 12, 17):
             current_week = 2
-        elif datetime(2023, 12, 17) <= current_date <= datetime(2023, 12, 23):
+        elif datetime(2023, 12, 17) <= current_date < datetime(2023, 12, 24):
             current_week = 3
-        elif datetime(2023, 12, 24) <= current_date <= datetime(2023, 12, 30):
+        elif datetime(2023, 12, 24) <= current_date < datetime(2023, 12, 31):
             current_week = 4
         else:
             current_week = 0
