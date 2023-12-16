@@ -22,25 +22,25 @@ class CardViewSet(viewsets.ModelViewSet):
         if (
             datetime(2023, 12, 3, tzinfo=ZoneInfo("Asia/Seoul"))
             <= current_date
-            < datetime(2023, 12, 10, tzinfo=ZoneInfo("Asia/Seoul"))
+            <= datetime(2023, 12, 9, tzinfo=ZoneInfo("Asia/Seoul"))
         ):
             current_week = 1
         elif (
             datetime(2023, 12, 10, tzinfo=ZoneInfo("Asia/Seoul"))
             <= current_date
-            < datetime(2023, 12, 17, tzinfo=ZoneInfo("Asia/Seoul"))
+            <= datetime(2023, 12, 16, tzinfo=ZoneInfo("Asia/Seoul"))
         ):
             current_week = 2
         elif (
             datetime(2023, 12, 17, tzinfo=ZoneInfo("Asia/Seoul"))
             <= current_date
-            < datetime(2023, 12, 24, tzinfo=ZoneInfo("Asia/Seoul"))
+            <= datetime(2023, 12, 23, tzinfo=ZoneInfo("Asia/Seoul"))
         ):
             current_week = 3
         elif (
             datetime(2023, 12, 24, tzinfo=ZoneInfo("Asia/Seoul"))
             <= current_date
-            < datetime(2023, 12, 31, tzinfo=ZoneInfo("Asia/Seoul"))
+            <= datetime(2023, 12, 30, tzinfo=ZoneInfo("Asia/Seoul"))
         ):
             current_week = 4
         else:

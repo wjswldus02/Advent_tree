@@ -1,4 +1,5 @@
 from datetime import datetime
+from zoneinfo import ZoneInfo
 from django.db import models
 from django.db.models.signals import pre_save
 from django.dispatch import receiver
@@ -20,14 +21,30 @@ class Card(models.Model):
 
 @receiver(pre_save, sender=Card)
 def data_process(sender, instance, **kwargs):
-    current_date = datetime.now()
-    if datetime(2023, 12, 3) <= current_date <= datetime(2023, 12, 9):
+    current_date = datetime.now(tz=ZoneInfo("Asia/Seoul"))
+    if (
+        datetime(2023, 12, 3, tzinfo=ZoneInfo("Asia/Seoul"))
+        <= current_date
+        <= datetime(2023, 12, 9, tzinfo=ZoneInfo("Asia/Seoul"))
+    ):
         instance.week = 1
-    elif datetime(2023, 12, 10) <= current_date <= datetime(2023, 12, 16):
+    elif (
+        datetime(2023, 12, 10, tzinfo=ZoneInfo("Asia/Seoul"))
+        <= current_date
+        <= datetime(2023, 12, 16, tzinfo=ZoneInfo("Asia/Seoul"))
+    ):
         instance.week = 2
-    elif datetime(2023, 12, 17) <= current_date <= datetime(2023, 12, 23):
+    elif (
+        datetime(2023, 12, 17, tzinfo=ZoneInfo("Asia/Seoul"))
+        <= current_date
+        <= datetime(2023, 12, 23, tzinfo=ZoneInfo("Asia/Seoul"))
+    ):
         instance.week = 3
-    elif datetime(2023, 12, 24) <= current_date <= datetime(2023, 12, 30):
+    elif (
+        datetime(2023, 12, 24, tzinfo=ZoneInfo("Asia/Seoul"))
+        <= current_date
+        <= datetime(2023, 12, 30, tzinfo=ZoneInfo("Asia/Seoul"))
+    ):
         instance.week = 4
     else:
         instance.week = 0
